@@ -1,8 +1,10 @@
 import React from "react";
-// import Fade from "react-reveal/Fade";
 
 import ImageHero from "assets/images/img-hero.jpg";
 import ImageHero_ from "assets/images/img-hero-frame.jpg";
+import IconCities from "assets/images/icons/icon-cities.svg";
+import IconTraveler from "assets/images/icons/icon-traveler.svg";
+import IconTreasure from "assets/images/icons/icon-treasure.svg";
 
 import Button from "elements/Button";
 
@@ -11,13 +13,12 @@ import formatNumber from "utils/formatNumber";
 export default function Hero(props) {
   function showMostPicked() {
     window.scrollTo({
-      top: props.refMostPicked.current.offsetTop - 30,
+      top: (props.refMostPicked.current.offsetTop = 30),
       behavior: "smooth",
     });
   }
 
   return (
-    // <Fade bottom>
     <section className="container pt-4">
       <div className="row align-items-center">
         <div className="col-auto pr-5" style={{ width: 530 }}>
@@ -46,7 +47,7 @@ export default function Hero(props) {
               <img
                 width="36"
                 height="36"
-                src="/images/icon-traveler.svg"
+                src={IconTraveler}
                 alt={`${props.data.travelers} Travelers`}
               />
               <h6 className="mt-3">
@@ -60,11 +61,11 @@ export default function Hero(props) {
               <img
                 width="36"
                 height="36"
-                src="/images/icon-treasure.svg"
-                alt={`${props.data.treasure} Treasures`}
+                src={IconTreasure}
+                alt={`${props.data.treasures} Treasures`}
               />
               <h6 className="mt-3">
-                {formatNumber(props.data.treasure)}{" "}
+                {formatNumber(props.data.treasures)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   treasures
                 </span>
@@ -74,7 +75,7 @@ export default function Hero(props) {
               <img
                 width="36"
                 height="36"
-                src="/images/icon-cities.svg"
+                src={IconCities}
                 alt={`${props.data.cities} Cities`}
               />
               <h6 className="mt-3">
@@ -103,6 +104,5 @@ export default function Hero(props) {
         </div>
       </div>
     </section>
-    // </Fade>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Flip from "react-reveal/Flip";
 
 import propTypes from "prop-types";
 
@@ -11,29 +12,33 @@ export default function Star({ className, value, height, width, spacing }) {
   for (let index = 0; index < 5 && index < value - decimals; index++) {
     leftPos = leftPos + width;
     star.push(
-      <div
-        className="star"
-        key={`star-${index}`}
-        style={{
-          left: index * width,
-          height: height,
-          width: width,
-          marginRight: spacing
-        }}
-      ></div>
+      <Flip left delay={200 * index}>
+        <div
+          className="star"
+          key={`star-${index}`}
+          style={{
+            left: index * width,
+            height: height,
+            width: width,
+            marginRight: spacing,
+          }}
+        ></div>
+      </Flip>
     );
   }
   if (decimals > 0 && value <= 5)
     star.push(
-      <div
-        className="star"
-        key={`starWithDecimal`}
-        style={{
-          left: leftPos,
-          height: height,
-          width: decimals * width - spacing
-        }}
-      ></div>
+      <Flip left delay={200 * value}>
+        <div
+          className="star"
+          key={`starWithDecimal`}
+          style={{
+            left: leftPos,
+            height: height,
+            width: decimals * width - spacing,
+          }}
+        ></div>
+      </Flip>
     );
 
   const starPlaceholder = [];
@@ -46,7 +51,7 @@ export default function Star({ className, value, height, width, spacing }) {
           left: index * width,
           height: height,
           width: width,
-          marginRight: spacing
+          marginRight: spacing,
         }}
       ></div>
     );
@@ -70,5 +75,5 @@ Star.propTypes = {
   value: propTypes.number,
   width: propTypes.number,
   height: propTypes.number,
-  spacing: propTypes.number
+  spacing: propTypes.number,
 };

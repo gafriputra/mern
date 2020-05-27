@@ -13,16 +13,16 @@ export default function Number(props) {
     max,
     prefix,
     suffix,
-    isSuffixPlural
+    isSuffixPlural,
   } = props;
-  const onChange = e => {
+  const onChange = (e) => {
     let value = String(e.target.value);
     if (+value <= max && +value >= min) {
       props.onChange({
         target: {
           name: name,
-          value: +value
-        }
+          value: +value,
+        },
       });
     }
   };
@@ -32,8 +32,8 @@ export default function Number(props) {
       onChange({
         target: {
           name: name,
-          value: +value - 1
-        }
+          value: +value - 1,
+        },
       });
   };
 
@@ -42,8 +42,8 @@ export default function Number(props) {
       onChange({
         target: {
           name: name,
-          value: +value + 1
-        }
+          value: +value + 1,
+        },
       });
   };
 
@@ -81,7 +81,7 @@ Number.defaultProps = {
   min: 1,
   max: 1,
   prefix: "",
-  suffix: ""
+  suffix: "",
 };
 
 Number.propTypes = {
@@ -89,5 +89,5 @@ Number.propTypes = {
   onChange: propTypes.func,
   isSuffixPlural: propTypes.bool,
   placeholder: propTypes.string,
-  outerClassName: propTypes.string
+  outerClassName: propTypes.string,
 };

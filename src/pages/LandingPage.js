@@ -17,10 +17,10 @@ export default class LandingPage extends Component {
     window.title = "Staycation | Home";
     window.scrollTo(0, 0);
 
-    if (!this.props.page.landingPage)
-      this.props.fetchPage(`/landing-page`, "landingPage");
+    // if (!this.props.page.landingPage)
+    //   this.props.fetchPage(`/landing-page`, "landingPage");
   }
-  
+
   render() {
     return (
       <>
